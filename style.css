@@ -18,6 +18,7 @@ html {
 body {
     font-family: "Lato", sans-serif;
     text-align: center;
+    background-color: #fff;
 }
 
 .container {
@@ -81,6 +82,10 @@ p {
     padding: 1rem 1.5rem;
     border-radius: 0.5rem;
     border: 1px solid var(--primary-color);
+}
+
+#message {
+    margin-top: 1rem;
 }
 
 #status {
