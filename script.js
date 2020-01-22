@@ -7,7 +7,7 @@ const seconds = document.querySelector("#seconds");
 
 // Game variables.
 let time = 5;
-let scrore = 0;
+let score = 0;
 let isPlaying;
 const words = [
     "hat",
@@ -42,11 +42,37 @@ function init() {
     // Load word from array.
     showWord(words);
 
+    // Match on word input.
+    wordInput.addEventListener("input", checkMatch);
+
     // Call countdown every second.
     setInterval(countDown, 1000);
 
     // Check game status.
     setInterval(checkGameStatus, 50);
+}
+
+function checkMatch() {
+    if (matchWords()) {
+        isPlaying = true;
+        time = 6;
+        showWord(words);
+        wordInput.value = "";
+        score++;
+    }
+
+    scoreDisplay.innerHTML = score;
+}
+
+// Match current word to word input.
+function matchWords() {
+    if (wordInput.value === currentWord.innerHTML) {
+        message.innerHTML = "Correct!";
+        return true;
+    } else {
+        message.innerHTML = "";
+        return false;
+    }
 }
 
 // Pick & show random word.
