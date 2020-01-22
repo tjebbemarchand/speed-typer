@@ -44,17 +44,17 @@ p {
     border-radius: 0.5rem;
 }
 
-.header h1 {
+.header .header__title {
     text-align: center;
     color: #fff;
     padding: 2rem;
 }
 
-.description {
+#description {
     margin-top: 5rem;
 }
 
-.description #seconds {
+#description #seconds {
     color: var(--primary-color);
     font-weight: 700;
     font-size: 2rem;
