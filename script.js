@@ -61,7 +61,12 @@ function checkMatch() {
         score++;
     }
 
-    scoreDisplay.innerHTML = score;
+    // If score -1, display 0.
+    if (score === -1) {
+        scoreDisplay.innerHTML = 0;
+    } else {
+        scoreDisplay.innerHTML = score;
+    }
 }
 
 // Match current word to word input.
@@ -100,6 +105,7 @@ function countDown() {
 function checkGameStatus() {
     if (!isPlaying && time === 0) {
         message.innerHTML = "Game over!";
+        score = -1;
     }
 }
 
