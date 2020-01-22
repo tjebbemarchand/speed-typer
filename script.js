@@ -49,6 +49,7 @@ const words = [
 function init() {
     // Show number of seconds in UI.
     seconds.innerHTML = currentLevel;
+    time.innerHTML = currentLevel;
 
     // Load word from array.
     showWord(words);
