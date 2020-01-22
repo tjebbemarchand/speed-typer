@@ -6,7 +6,15 @@ const message = document.querySelector("#message");
 const seconds = document.querySelector("#seconds");
 
 // Game variables.
-let time = 5;
+// Available levels.
+const levels = {
+    easy: 5,
+    medium: 4,
+    hard: 3
+};
+
+const currentLevel = levels.medium;
+let time = currentLevel;
 let score = 0;
 let isPlaying;
 const words = [
@@ -39,6 +47,9 @@ const words = [
 
 // Initialize game.
 function init() {
+    // Show number of seconds in UI.
+    seconds.innerHTML = currentLevel;
+
     // Load word from array.
     showWord(words);
 
@@ -55,7 +66,7 @@ function init() {
 function checkMatch() {
     if (matchWords()) {
         isPlaying = true;
-        time = 6;
+        time = currentLevel + 1;
         showWord(words);
         wordInput.value = "";
         score++;
