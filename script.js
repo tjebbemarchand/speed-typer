@@ -44,6 +44,9 @@ function init() {
 
     // Call countdown every second.
     setInterval(countDown, 1000);
+
+    // Check game status.
+    setInterval(checkGameStatus, 50);
 }
 
 // Pick & show random word.
@@ -69,7 +72,9 @@ function countDown() {
 
 // Check the status of the game.
 function checkGameStatus() {
-    if(isPlaying)
+    if (!isPlaying && time === 0) {
+        message.innerHTML = "Game over!";
+    }
 }
 
 window.addEventListener("DOMContentLoaded", init);
