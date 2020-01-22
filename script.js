@@ -41,6 +41,9 @@ const words = [
 function init() {
     // Load word from array.
     showWord(words);
+
+    // Call countdown every second.
+    setInterval(countDown, 1000);
 }
 
 // Pick & show random word.
@@ -50,6 +53,23 @@ function showWord(words) {
 
     // Output random word.
     currentWord.innerHTML = words[randIndex];
+}
+
+function countDown() {
+    // Check the time.
+    if (time > 0) {
+        time--;
+    } else if (time === 0) {
+        isPlaying = false;
+    }
+
+    // Show time.
+    timeDisplay.innerHTML = time;
+}
+
+// Check the status of the game.
+function checkGameStatus() {
+    if(isPlaying)
 }
 
 window.addEventListener("DOMContentLoaded", init);
